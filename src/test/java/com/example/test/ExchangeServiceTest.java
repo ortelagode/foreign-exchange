@@ -63,16 +63,16 @@ public class ExchangeServiceTest {
 
 	@Before
 	public void before() throws S3ServiceException {
-     RestS3Service s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()));
-		Jets3tProperties jets3 = s3Service.getJetS3tProperties();
-		jets3.setProperty("s3service.s3-endpoint", localstack.getEndpointOverride(S3).getHost());
-		jets3.setProperty("s3service.https-only", "false");
-		jets3.setProperty("s3service.s3-endpoint-http-port", String.valueOf(localstack.getEndpointOverride(S3).getPort()));
-
-		CredentialsProvider credentials = s3Service.getCredentialsProvider();
-		s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()), "test", credentials, jets3);
-
-		S3Bucket[] myBuckets = s3Service.listAllBuckets();
+//     RestS3Service s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()));
+//		Jets3tProperties jets3 = s3Service.getJetS3tProperties();
+//		jets3.setProperty("s3service.s3-endpoint", localstack.getEndpointOverride(S3).getHost());
+//		jets3.setProperty("s3service.https-only", "false");
+//		jets3.setProperty("s3service.s3-endpoint-http-port", String.valueOf(localstack.getEndpointOverride(S3).getPort()));
+//
+//		CredentialsProvider credentials = s3Service.getCredentialsProvider();
+//		s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()), "test", credentials, jets3);
+//
+//		S3Bucket[] myBuckets = s3Service.listAllBuckets();
 
 
 	}
@@ -85,9 +85,9 @@ public class ExchangeServiceTest {
 		RestS3Service s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()));
 
 		Jets3tProperties jets3 = s3Service.getJetS3tProperties();
-		//jets3.setProperty("httpclient.proxy-autodetect", "false");
-		//jets3.setProperty("httpclient.proxy-host", String.valueOf(localstack.getEndpointOverride(S3).getHost()));
-		//jets3.setProperty("httpclient.proxy-port", String.valueOf(localstack.getEndpointOverride(S3).getPort()));
+//		jets3.setProperty("httpclient.proxy-autodetect", "false");
+//		jets3.setProperty("httpclient.proxy-host", "localhost");
+//		jets3.setProperty("httpclient.proxy-port", String.valueOf(localstack.getEndpointOverride(S3).getPort()));
 
 		jets3.setProperty("s3service.s3-endpoint", "localhost");
 		jets3.setProperty("s3service.https-only", "false");
@@ -97,7 +97,7 @@ public class ExchangeServiceTest {
 		CredentialsProvider credentials = s3Service.getCredentialsProvider();
 		s3Service = new RestS3Service(new AWSCredentials(localstack.getAccessKey(), localstack.getSecretKey()), "test", credentials, jets3);
 		s3Service.createBucket("test");
-		//S3Bucket[] myBuckets = s3Service.listAllBuckets();
+//		S3Bucket[] myBuckets = s3Service.listAllBuckets();
 
 //		S3Client s3 = S3Client
 //				.builder()
